@@ -1,19 +1,20 @@
-import Entry from "../Entry/Entry";
+import { useEntry } from '../../context/EntryContext';
+import Entry from '../Entry/Entry';
 
 export default function EntryList() {
-    const { entries } = useEntries()
+  const { entries } = useEntry();
 
-    return (
-        <div>
-            <ul>
-                {entries.map((entry) => {
-                    return (
-                        <li key={`${entry.name}-${entry.message}`}>
-                            <Entry entry={entry} />
-                        </li>
-                    )
-                })}
-            </ul>
-        </div>
-    )
+  return (
+    <div>
+      <ul>
+        {entries.map((entry) => {
+          return (
+            <li key={`${entry.name}-${entry.message}`}>
+              <Entry entry={entry} />
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 }
