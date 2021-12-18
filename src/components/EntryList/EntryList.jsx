@@ -1,4 +1,5 @@
 import { useEntry } from '../../context/EntryContext';
+import React from 'react';
 import Entry from '../Entry/Entry';
 
 export default function EntryList() {

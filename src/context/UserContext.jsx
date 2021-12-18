@@ -1,21 +1,28 @@
-import { useContext, createContext, useState } from 'react'
+import { useContext, createContext, useState } from 'react';
+import React from 'react';
 
-const UserContext = createContext()
+const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
-  const [user, setUser] = useState('')
+  const [user, setUser] = useState('');
 
-  return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>
-}
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
+  );
+};
 
 const useUser = () => {
-  const context = useContext(UserContext)
+  const context = useContext(UserContext);
 
   if (context === undefined) {
-    throw new Error('useUser hook must be called within a UserContext Provider')
+    throw new Error(
+      'useUser hook must be called within a UserContext Provider'
+    );
   }
 
-  return context
-}
+  return context;
+};
 
-export { UserProvider, useUser }
+export { UserProvider, useUser };

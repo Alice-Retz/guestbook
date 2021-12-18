@@ -1,4 +1,5 @@
 import { useUser } from '../../context/UserContext';
+import React from 'react';
 
 export default function Header() {
   const { user } = useUser();

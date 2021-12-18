@@ -1,4 +1,4 @@
-import Home from './views/Home/Home';
+import React from 'react';
 import Layout from './views/Layout/Layout';
 
 export default function App() {

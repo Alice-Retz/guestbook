@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useEntry } from '../../context/EntryContext';
 import { useUser } from '../../context/UserContext';
+import React from 'react';
 
 export default function GuestBook() {
   const [name, setName] = useState('');
