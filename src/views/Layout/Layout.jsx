@@ -1,13 +1,14 @@
 import Header from '../../components/Layout/Header';
-import Home from '../Home/Home';
 import React from 'react';
 
-export default function Layout() {
+const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <Home />
+      <main>{children}</main>
       <footer />
     </>
   );
-}
+};
+
+export default Layout;
