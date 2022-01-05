@@ -15,10 +15,25 @@ export default function Auth() {
   const [error, setError] = useState(null);
   const { from } = location.state || { from: { pathname: '/' } };
 
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const loginWasSuccessful = auth.login(
+      formState.username,
+      formState.password
+    );
+
+    if (loginWasSuccessful) {
+      setUser(formState.username);
+      history.replace(from.pathname);
+    } else {
+      setError('Invalid  log in credentials');
+    }
+  };
+
   return (
     <div>
       <legend>Sign In</legend>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form onSubmit={(e) => handleLogin(e)}>
         <label htmlFor="username">Username</label>
         <input id="username" type="text" name="username" required />
         <label htmlFor="password">Password</label>
