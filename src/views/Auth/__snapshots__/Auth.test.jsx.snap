@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the log in page 1`] = `
+<div>
+  <header>
+    <p>
+      Sign in!
+    </p>
+  </header>
+  <main>
+    <div>
+      <legend>
+        Sign In
+      </legend>
+      <form>
+        <label
+          for="username"
+        >
+          Username
+        </label>
+        <input
+          id="username"
+          name="username"
+          required=""
+          type="text"
+          value=""
+        />
+        <label
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          id="password"
+          name="password"
+          required=""
+          type="password"
+          value=""
+        />
+        <button
+          aria-label="sign-in"
+          type="submit"
+        >
+          Sign In
+        </button>
+      </form>
+      <a
+        href="/"
+      >
+        View Guestbook
+      </a>
+    </div>
+  </main>
+  <footer />
+</div>
+`;

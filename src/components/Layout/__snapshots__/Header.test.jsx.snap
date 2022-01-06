@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the username of the logged in person 1`] = `
+<div>
+  <header>
+    <p>
+      Sign in!
+    </p>
+  </header>
+</div>
+`;
