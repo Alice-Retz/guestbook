@@ -4,41 +4,21 @@ import { useUser } from '../../context/UserContext';
 import React from 'react';
 
 export default function GuestBook() {
-  const [name, setName] = useState('');
   const [guestEntry, setGuestEntry] = useState('');
   const { entries, setEntries } = useEntry();
   const { user, setUser } = useUser();
 
   function updateGuestName() {
     if (!guestEntry) return;
-    setUser(name);
-    setEntries([...entries, { name, message: guestEntry }]);
+    setEntries([...entries, { name: user, message: guestEntry }]);
     setGuestEntry('');
   }
 
   const handleSubmit = (e) => {
+    console.log('submitted');
     e.preventDefault();
     updateGuestName();
   };
-
-  const guestNameInput = (
-    <section>
-      <div>
-        <label className="labelText" htmlFor="guestName">
-          Guest Name
-        </label>
-      </div>
-      <div>
-        <input
-          id="guestName"
-          type="text"
-          placeholder="Guest Name..."
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-    </section>
-  );
 
   const displayMessage = user
     ? `Thanks for signing, ${user}!`
@@ -48,7 +28,6 @@ export default function GuestBook() {
     <>
       <h1>{displayMessage}</h1>
       <form onSubmit={handleSubmit}>
-        {user ? null : guestNameInput}
         <div>
           <div>
             <label className="labelText" htmlFor="guestEntry">
@@ -64,22 +43,21 @@ export default function GuestBook() {
             />
           </div>
         </div>
-        <div>
-          <button type="submit">Sign</button>
-          {user && (
-            <button
-              type="button"
-              className="signout"
-              onClick={() => {
-                setUser('');
-                setName('');
-              }}
-            >
-              Not {user}?
-            </button>
-          )}
-        </div>
+
+        <button type="submit">Sign</button>
       </form>
+      {user && (
+        <button
+          className="signout"
+          onClick={() => {
+            console.log('on click');
+            setUser('');
+            setName('');
+          }}
+        >
+          Not {user}?
+        </button>
+      )}
     </>
   );
 }
