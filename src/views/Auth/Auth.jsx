@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
 import { useAuth } from '../../hooks/useAuth';
 import useForm from '../../hooks/useForm';
+import React from 'react';
 
 export default function Auth() {
   const { setUser } = useUser();
